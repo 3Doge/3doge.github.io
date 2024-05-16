@@ -6,9 +6,9 @@ let snake = [[8,8]], apple = [4,4], [dx,dy] = [0,0];
 onkeydown = ({key}) => [dx,dy] =
     { [key]: [dx,dy], ArrowRight:[dx||1, 0], ArrowLeft:[dx||-1, 0],
                       ArrowDown:[0, dy||1], ArrowUp:[0, dy||-1], }[key];
-setInterval(() => {
+    setInterval(() => {
     snake.unshift([ (snake[0][0] + dx] & 15, (snake[0][1] + dy) & 15 ]);
-    if(""+snake[0]==apple)
+    if(""+snake[0] == apple)
         with(Math) do apple [ floor (random()*16), floor (random()*16)];
         while(snake.some (seg => ""+seg = apple));
     else if(snake.slice(1).some (seg => ""+seg == snake [0]))
